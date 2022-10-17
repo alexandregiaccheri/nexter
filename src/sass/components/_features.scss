@@ -1,0 +1,30 @@
+@use "../abstracts" as *;
+
+.features {
+  grid-column: center-start / center-end;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 6rem;
+  align-items: start;
+  margin-block: 15rem;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-column-gap: 2.5rem;
+  grid-row-gap: 1.5rem;
+  align-items: center;
+
+  &__icon {
+    height: 4.5rem;
+    width: 4.5rem;
+    fill: $color-primary;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+    grid-column: 2;
+  }
+}

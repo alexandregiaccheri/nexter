@@ -1,0 +1,77 @@
+@use "../abstracts" as *;
+
+.header {
+  grid-column: full-start / col-end 6;
+
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-row-gap: 1.5rem;
+  padding: 8rem;
+  padding-top: 4rem;
+  justify-content: center;
+
+  background-image: linear-gradient(
+      rgba($color-secondary, 0.93),
+      rgba($color-secondary, 0.93)
+    ),
+    url("../assets/hero.jpg");
+  background-size: center;
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &__btn {
+    align-self: start;
+    justify-self: start;
+
+    @include responsive(laptop) {
+      margin-top: 2rem;
+    }
+  }
+
+  @include responsive(portrait-tablet) {
+    grid-column: full-start / full-end;
+  }
+
+  @include responsive(phone) {
+    padding: 5rem;
+  }
+
+  &__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $color-gray-light-2;
+
+    &::after,
+    &::before {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 3rem;
+    justify-items: center;
+
+    @include responsive(phone) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 2rem;
+    }
+
+    img {
+      max-height: 2.5rem;
+      filter: brightness(70%);
+    }
+  }
+}

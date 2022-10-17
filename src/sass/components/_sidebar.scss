@@ -1,0 +1,57 @@
+@use "../abstracts" as *;
+
+.sidebar {
+  display: flex;
+  justify-content: center;
+  background-color: $color-primary;
+  grid-column: side-start / side-end;
+  grid-row: 1 / -1;
+
+  @include responsive(landscape-tablet) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+.nav-btn {
+  margin-top: 4rem;
+
+  border: none;
+  border-radius: 0;
+
+  background-color: #fff;
+  height: 2px;
+  width: 4.5rem;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+  }
+
+  &::before {
+    transform: translateY(-1.5rem);
+  }
+
+  &::after {
+    transform: translateY(+1.3rem);
+  }
+
+  @include responsive(landscape-tablet) {
+    margin-top: 0;
+    margin-right: 2rem;
+
+    &::before {
+      transform: translateY(-1.2rem);
+    }
+
+    &::after {
+      transform: translateY(+1rem);
+    }
+  }
+}

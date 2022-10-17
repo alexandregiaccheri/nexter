@@ -1,0 +1,59 @@
+@use "../abstracts" as *;
+
+.footer {
+  padding: 8rem;
+  background-color: $color-secondary;
+  grid-column: full-start / full-end;
+
+  @include responsive(laptop) {
+    padding: 6rem;
+  }
+}
+
+.nav {
+  list-style: none;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  align-items: center;
+
+  @include responsive(laptop) {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+
+  &__link:link,
+  &__link:visited {
+    display: block;
+    padding: 1.5rem;
+    font-family: $font-display;
+    font-size: 1.4rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #fff;
+    transition: all 0.2s;
+
+    @include responsive(laptop) {
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__link:hover,
+  &__link:active {
+    background-color: rgba($color: #fff, $alpha: 0.05);
+    transform: translateY(-3px);
+  }
+}
+
+.copyright {
+  width: 70%;
+  margin-inline: auto;
+  margin-top: 6rem;
+
+  font-size: 1.4rem;
+  text-align: center;
+  color: $color-gray-light-2;
+}

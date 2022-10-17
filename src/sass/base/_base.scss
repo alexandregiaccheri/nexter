@@ -1,0 +1,44 @@
+@use "../abstracts" as *;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include responsive(small-desktop) {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 300;
+  color: $color-gray-dark-2;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 1.8rem 3rem;
+
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+
+  border: none;
+  border-radius: 0;
+
+  background-color: $color-primary;
+  color: #fff;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
